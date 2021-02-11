@@ -1,0 +1,9 @@
+# soil configuration file
+Server:
+  Hostname: "localhost"
+  UseHTTP: true
+  HTTPPort: 8080
+  UseHTTPS: false
+  HTTPSPort: 8443
+  CertFile: "examples/tls/server.crt"
+  KeyFile: "examples/tls/server.key"
