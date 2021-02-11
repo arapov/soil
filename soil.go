@@ -3,6 +3,7 @@ package main
 import (
 	"log"
 
+	"github.com/arapov/soil/lib/boot"
 	"github.com/arapov/soil/lib/core/env"
 	"github.com/arapov/soil/lib/core/server"
 )
@@ -13,6 +14,8 @@ func main() {
 		log.Fatal(err)
 	}
 
-	server.Run(nil, nil, config.Server)
+	handlers := boot.RegisterHandlers()
+
+	server.Run(handlers, config.Server)
 
 }
