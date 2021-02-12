@@ -14,6 +14,7 @@ func main() {
 		log.Fatal(err)
 	}
 
+	boot.RegisterServices(config)
 	handlers := boot.RegisterHandlers()
 
 	server.Run(handlers, config.Server)
