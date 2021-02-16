@@ -2,25 +2,26 @@ package asset
 
 import (
 	"net/http"
+	"os"
+
+	"github.com/arapov/soil/controller/status"
 
 	"github.com/arapov/soil/lib/core/router"
 )
 
-// Load routes.
+// Load routes to serve static content.
 func Load() {
-	// TODO: figure out how to serve files in nested directories
-	router.Get("/asset/{dir}/{file}", Index)
-	// TODO: rewrite it properly
-	router.Get("/favicon.ico", FavIcon)
+	router.GetSub("/asset", Index)
 }
 
 // Index serves asset directory.
 func Index(w http.ResponseWriter, r *http.Request) {
-	// TODO: check for file and its existance
-	http.ServeFile(w, r, r.URL.Path[1:])
-}
+	path := r.URL.Path[1:]
 
-// FavIcon serves favicon
-func FavIcon(w http.ResponseWriter, r *http.Request) {
-	http.ServeFile(w, r, "asset/favicon/favicon.ico")
+	if fi, err := os.Stat(path); err == nil && !fi.IsDir() {
+		http.ServeFile(w, r, path)
+		return
+	}
+
+	status.Error404(w, r)
 }
