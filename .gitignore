@@ -1,4 +1,4 @@
-/go.sum
-
-/soil.yaml
-/soil
+build/
+go.sum
+soil.yaml
+soil
