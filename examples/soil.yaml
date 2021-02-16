@@ -1,4 +1,13 @@
 # soil configuration file
+View:
+  Template:
+    Root: "base"
+    Children:
+      - "part/favicon"
+    Extension: ".tmpl"
+  Directories:
+    Assets: "asset"  
+    Views: "view"
 Server:
   Hostname: "localhost"
   UseHTTP: true
