@@ -3,12 +3,13 @@ package status
 import (
 	"net/http"
 
+	"github.com/arapov/soil/lib/core/router"
 	"github.com/arapov/soil/lib/flight"
 )
 
 // Load routes.
 func Load() {
-	// TODO: Routes TBD
+	router.NotFound(Error404)
 }
 
 // Error404 - page not found
