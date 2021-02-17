@@ -1,7 +1,7 @@
 package controller
 
 import (
-	"github.com/arapov/soil/controller/asset"
+	"github.com/arapov/soil/controller/assets"
 	"github.com/arapov/soil/controller/debug"
 	"github.com/arapov/soil/controller/home"
 	"github.com/arapov/soil/controller/status"
@@ -11,6 +11,6 @@ import (
 func LoadRoutes() {
 	debug.Load() // TODO: acl
 	status.Load()
-	asset.Load()
+	assets.Load()
 	home.Load()
 }

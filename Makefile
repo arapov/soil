@@ -16,7 +16,7 @@ install: build
 	@mkdir -p build/
 	@cp -vR examples build/examples
 	@cp -vR view build/view
-	@cp -vR asset build/asset
+	@cp -vR assets build/assets
 	@cp -v soil build/soil
 
 build:

@@ -1,4 +1,4 @@
-package asset
+package assets
 
 import (
 	"net/http"
@@ -11,10 +11,10 @@ import (
 
 // Load routes to serve static content.
 func Load() {
-	router.GetSub("/asset", Index)
+	router.GetSub("/assets", Index)
 }
 
-// Index serves asset directory.
+// Index serves assets directory.
 func Index(w http.ResponseWriter, r *http.Request) {
 	path := r.URL.Path[1:]
 
