@@ -1,4 +1,12 @@
-build/
-go.sum
-soil.yaml
-soil
+# out of tree assets
+/deps/**
+/assets/css
+/assets/scss
+/.sass-cache
+
+# built project
+/build
+
+/go.sum
+/soil.yaml
+/soil

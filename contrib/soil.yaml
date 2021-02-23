@@ -14,5 +14,5 @@ Server:
   HTTPPort: 8080
   UseHTTPS: false
   HTTPSPort: 8443
-  CertFile: "examples/tls/server.crt"
-  KeyFile: "examples/tls/server.key"
+  CertFile: "contrib/tls/server.crt"
+  KeyFile: "contrib/tls/server.key"

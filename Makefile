@@ -12,20 +12,30 @@ fork:
 	@sed -i 's/arapov\/soil/$(subst /,\/,$(repo))/g' go.mod
 	@echo "fork: use 'git diff' to see the changes, 'git commit' to apply or 'git checkout -f' to revert"
 
-install: build
-	@mkdir -p build/
-	@cp -vR examples build/examples
-	@cp -vR view build/view
-	@cp -vR assets build/assets
-	@cp -v soil build/soil
+install: build deps
+	mkdir -p build/
+	@cp -R contrib build/contrib
+	@cp -R view build/view
+	@cp -R assets build/assets
+	cp -v soil build/soil
 
 build:
 	go build -ldflags="-s -w" soil.go
 
-run:
+deps: contrib
+	@mkdir -p deps/bootstrap
+	@wget -nv --show-progress $(shell curl -s https://api.github.com/repos/twbs/bootstrap/tags | jq -r ".[0].tarball_url") -O deps/bootstrap-latest.tar
+	@tar xf deps/bootstrap-latest.tar --strip 1 -C deps/bootstrap
+	@mkdir -p assets/css assets/scss/bootstrap
+	@mv deps/bootstrap/scss/* assets/scss/bootstrap/
+	@cp -R contrib/scss/* assets/scss
+	@sass --trace assets/scss/main.scss:assets/css/soil.css
+
+run: deps
 	@go run soil.go
 
 .PHONY: clean
 clean:
-	@rm -f soil
-	@rm -rf build/
+	rm -f soil
+	rm -rf build/
+	rm -rf deps/ assets/scss/ assets/css/
