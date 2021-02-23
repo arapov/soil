@@ -20,7 +20,7 @@ install: build
 	@cp -v soil build/soil
 
 build:
-	go build -ldflags="-s -w"
+	go build -ldflags="-s -w" soil.go
 
 run:
 	@go run soil.go
