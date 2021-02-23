@@ -1,7 +1,6 @@
 # out of tree assets
-/deps/**
-/assets/css
-/assets/scss
+/deps
+/assets
 /.sass-cache
 
 # built project
