@@ -1,0 +1,3 @@
+- How to regenerate CSS files:
+  $ sass --trace assets/scss/main.scss:assets/css/soil.css
+  

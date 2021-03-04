@@ -32,7 +32,7 @@ build: vendor deps
 
 install: build
 	@mkdir -p build/contrib
-	@cp -R contrib/tls contrib/soil.yaml build/contrib/
+	@cp -R contrib/tls contrib/soil.yaml contrib/HOWTO build/contrib/
 	@cp -R view build/view
 	@cp -R assets build/assets
 	@cp -v soil build/soil
