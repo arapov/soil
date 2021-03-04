@@ -1,12 +1,15 @@
 # soil configuration file
 View:
-  Template:
+  BaseURI: "/"
+  Templates:
     Root: "base"
     Children:
       - "part/favicon"
+      - "part/menu"
+      - "part/footer"
     Extension: ".tmpl"
   Directories:
-    Assets: "asset"  
+    Assets: "assets"
     Views: "view"
 Server:
   Hostname: "localhost"

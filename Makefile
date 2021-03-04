@@ -26,7 +26,8 @@ deps: contrib
 	mkdir -p deps/bootstrap
 	wget -nv --show-progress $(shell curl -s https://api.github.com/repos/twbs/bootstrap/tags | jq -r ".[0].tarball_url") -O deps/bootstrap-latest.tar
 	@tar xf deps/bootstrap-latest.tar --strip 1 -C deps/bootstrap
-	@mkdir -p assets/css assets/scss/bootstrap
+	@mkdir -p assets/js assets/css assets/scss/bootstrap
+	@cp deps/bootstrap/dist/js/bootstrap.min.* assets/js
 	@mv deps/bootstrap/scss/* assets/scss/bootstrap/
 	@cp -R contrib/scss/* assets/scss
 	sass --trace assets/scss/main.scss:assets/css/soil.css

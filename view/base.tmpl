@@ -1,9 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-{{template "favicon.tmpl" .}}
+        <meta charset="utf-8" />
+        {{ template "favicon.tmpl" . }}
+        {{ CSS "assets/css/soil.css" "all" }}
     </head>
     <body>
-{{template "content" .}}
+        {{ template "menu.tmpl" }}
+        {{ template "content" . }}
+        {{ template "footer.tmpl" }}
+        
+        {{ JS "assets/js/bootstrap.min.js" }}
     </body>
 </html>

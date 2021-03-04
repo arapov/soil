@@ -17,5 +17,5 @@ func Error404(w http.ResponseWriter, r *http.Request) {
 	f := flight.Get()
 	w.WriteHeader(http.StatusNotFound)
 	v := f.View.New("status/index")
-	v.Render(w)
+	v.Render(w, r)
 }

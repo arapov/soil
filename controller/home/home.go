@@ -17,5 +17,5 @@ func Index(w http.ResponseWriter, r *http.Request) {
 	f := flight.Get()
 	v := f.View.New("home/index")
 
-	v.Render(w)
+	v.Render(w, r)
 }
