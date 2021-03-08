@@ -1,9 +1,10 @@
 # out of tree assets
 /deps
-/assets
+/vendor
 /.sass-cache
 
 # built project
+/assets
 /build
 
 /go.sum

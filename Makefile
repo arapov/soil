@@ -1,3 +1,4 @@
+.PHONY: help
 help:
 	@echo "soil: makefile available targets"
 	@echo
@@ -7,6 +8,7 @@ help:
 	@echo "	clean	- removes soil binary and build/ directory"
 	@echo "	fork	- creates changes in fork, required parameter: repo=%account/%repo"
 
+.PHONY: fork
 fork:
 	@echo "fork: replacing 'arapov/soil' with '$(repo)' in go sources..."
 	@find . -type f -name '*.go' | xargs sed -i 's/arapov\/soil/$(subst /,\/,$(repo))/g'
@@ -30,6 +32,7 @@ deps:
 build: vendor deps
 	go build -ldflags="-s -w" soil.go
 
+.PHONY: install
 install: build
 	@mkdir -p build/contrib
 	@cp -R contrib/tls contrib/soil.yaml contrib/HOWTO build/contrib/
@@ -37,11 +40,13 @@ install: build
 	@cp -R assets build/assets
 	@cp -v soil build/soil
 
+.PHONY: run
 run: vendor deps
 	go run soil.go
 
+.PHONY: clean
 clean:
 	rm -f soil go.sum
 	rm -rf build/
-	rm -rf deps/ assets/
+	rm -rf vendor/ deps/ assets/
 	rm -rf .sass-cache/
